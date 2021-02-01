@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <!--Document title-->
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <!--Page header-->
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid m-5">
+              <span class="navbar-brand mb-0">Weather Dashboard</span>
+            </div>
+          </nav>
+    </header>
+
+    <main>        
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <!--Section heading-->
+                        <h5 class="mt-2">Search for a city:</h5>
+                        <!--Search bar-->
+                        <div class="input-group mt-1">
+                            <input type="text"  id="city-search" class="form-control" placeholder="" aria-label="Search bar" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                            </div> 
+                        </div>
+                        <!--Card to hold list of searched cities-->
+                        <div class="card">
+                            <ul class="list-group list-group-flush mt-3">                            
+                            </ul>
+                        </div>                             
+                    </div>
+                    <div class="col-8">
+                        <div class="row" id="current-city">
+
+                        </div>
+                        <div class="row" id="fiveday">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    
+
+
+
+
+
+
+
+    
+</body>
+</html>

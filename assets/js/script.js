@@ -1,10 +1,12 @@
 var currentDate = dayjs().format("M/DD/YYYY");
 
+
+
 $(document).ready(function(){
     
     function getCityWeather(cityName){
-        var queryURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7c116c195b43008fb23ae55ea85959a7"
-        var fiveDayURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7c116c195b43008fb23ae55ea85959a7"
+        var queryURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=7c116c195b43008fb23ae55ea85959a7&units=imperial";
+        
         
         $.ajax({
             url: queryURL,
@@ -12,7 +14,7 @@ $(document).ready(function(){
             method: "GET"
         }).then(function(data){
             console.log(data);
-            $("current-city").empty();
+            $("#current-city").empty();
             
         })
 
@@ -27,52 +29,37 @@ $(document).ready(function(){
         
 
       // var uvIndex = $("<p>").addClass("the-uvIndex").text("UV Index: " + data.main.temp + "F")
-        
+        getFiveDay(cityName);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // $("#search-button").on("click", function(event){
-    //     event.preventDefault();
+
+    function getFiveDay(city){
+        var fiveDayURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=7c116c195b43008fb23ae55ea85959a7&units=imperial";
+
+
+        $.ajax({
+            url: fiveDayURL,
+            dataType: "json",
+            method: "GET"
+        }).then(function(data){
+            console.log(data);
+            $("#fiveday").empty();
+
+            for (var i = 0; i < data.list.length; i++){
+                var day = $("<h4>").text(new Date(data.list[i].dt_txt).toLocaleDateString())
+                var maxTemp = $("<p>").text("Temperature: " + data.list[i].main.temp_max + "F");
+                var humid = $("<p>").text("Humidity: " + data.list[i].main.humidity + "%")
+
+                $(".cardfive").append(day, maxTemp, humid);
+                            }
+            
+        })
+    }
+     
+    $("#search-button").on("click", function(event){
+        event.preventDefault();
 
         
-    // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    })
 
 getCityWeather();
 

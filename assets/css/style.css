@@ -3,3 +3,16 @@
     font-size: 50px;
     font-weight: 50px;
 }
+
+
+.lowUV {
+    background-color: green;
+}
+
+.moderateUV {
+    background-color: yellow;
+}
+
+.highUV {
+    background-color: red;
+}

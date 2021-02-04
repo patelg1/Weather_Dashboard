@@ -16,3 +16,21 @@
 .highUV {
     background-color: red;
 }
+
+.card {
+    margin: 25px;
+}
+
+.container {
+    margin-top: 25px;
+}
+
+.forecastCard {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    float: left;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(88, 88, 243);
+    
+}

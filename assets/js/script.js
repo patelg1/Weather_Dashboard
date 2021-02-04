@@ -76,7 +76,7 @@ $(document).ready(function(){
                 var humid = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%")
 
                 $(".cardfive").append(day, maxTemp, humid);
-                            }
+            }
             
         })
     }
@@ -88,6 +88,7 @@ $(document).ready(function(){
         var cityArray = JSON.stringify(storedCity);
 
         localStorage.setItem("searchedCity", cityArray);
+        $(".list-group").append(storedCity);
 
         getCityWeather(cityName);
     })

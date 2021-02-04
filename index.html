@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!--Reset CSS-->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!--Font Awesome-->
@@ -16,9 +17,9 @@
 <body>
     <!--Page header-->
     <header>
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid m-5">
-              <span class="navbar-brand mb-0">Weather Dashboard</span>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid m-2">
+              <span class="navbar-brand mb-0 text-align-center">Weather Dashboard</span>
             </div>
           </nav>
     </header>
@@ -34,7 +35,7 @@
                         <div class="input-group mt-1">
                             <input type="text"  id="city-search" class="form-control" placeholder="" aria-label="Search bar" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                              <button id="search-button"class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                              <button id="search-button"class="btn btn-outline-white bg-primary" type="button"><i class="fas fa-search text-white"></i></button>
                             </div> 
                         </div>
                         <!--Card to hold list of searched cities-->
@@ -45,7 +46,6 @@
                     </div>
                     <div class="col-8">
                         <div class="card" id="current-city">
-
                         </div>
                         <div class="cardfive" id="fiveday">
                             <h5 class="mt-1">5 Day Forecast:</h5>

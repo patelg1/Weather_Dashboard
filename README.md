@@ -8,11 +8,8 @@ This application has a form inputs for a city search, that presents the current 
 
 ## Installation
 
-Application Website URL: https://github.com/patelg1/Weather_Dashboard
+Application Website URL: https://patelg1.github.io/Weather_Dashboard/
 
-Repository URL: https://github.com/patelg1/Work_Day_Schedular
+Repository URL: https://github.com/patelg1/Weather_Dashboard
 
 
-## Usage 
-
-![Workday_Schedular_screenshot](assets/workday_planner_screenshot.png)

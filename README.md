@@ -17,4 +17,3 @@ Repository URL: https://github.com/patelg1/Weather_Dashboard
 ![Weather Dashboard gif](assets/weather-dashboard-demo.gif)
 
 
-git com

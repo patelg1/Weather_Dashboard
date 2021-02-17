@@ -17,11 +17,11 @@
 <body>
     <!--Page header-->
     <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid m-2">
-              <span class="navbar-brand mb-0 text-align-center">Weather Dashboard</span>
-            </div>
-          </nav>
+        <!-- <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid m-2 text-align-center"> -->
+              <h1 class="page-title">Weather Dashboard</h1>
+            <!-- </div>
+          </nav> -->
     </header>
 
     <main>        
@@ -42,7 +42,8 @@
                         <div class="card">
                             <ul class="list-group list-group-flush mt-3">                            
                             </ul>
-                        </div>                             
+                        </div> 
+                        <button id="clear-history" class="btn bg-primary text-white mt-2" type="button">Clear History</button>                            
                     </div>
                     <div class="col-8">
                         <!--Holds current day weather conditions-->
@@ -50,9 +51,12 @@
                             <h5 class="mt-1">Current Day Forecast:</h5>
                         </div>
                         <!--Holds 5 day forecast-->
-                        <div class="row card" id="fiveday">
-                            <h5 class="mt-1">5 Day Forecast:</h5>
+                    <div class="row card">
+                        <h5 class="mt-1 5day-forecast">5 Day Forecast:</h5>
+                   
+                        <div class="row" id="fiveday">
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>

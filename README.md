@@ -12,4 +12,9 @@ Application Website URL: https://patelg1.github.io/Weather_Dashboard/
 
 Repository URL: https://github.com/patelg1/Weather_Dashboard
 
+## Usage
 
+![Weather Dashboard gif](assets/weather-dashboard-demo.gif)
+
+
+git com

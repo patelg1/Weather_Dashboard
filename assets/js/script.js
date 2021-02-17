@@ -14,14 +14,14 @@ $(document).ready(function(){
             url: queryURL,            
             method: "GET"
         }).then(function(response){
-            console.log(response);
+            
             $("#current-city").empty();
             // Information getting from api
             var searchedCity = $("<h3>").text(response.name);
             var displayDate = searchedCity.append(" " + currentDate);
-            var temperature = $("<p>").addClass("the-temperature").text("Temperature: " + response.main.temp + "F");
-            var humidity = $("<p>").addClass("the-humidity").text("Humidity: " + response.main.humidity + "%");
-            var windSpeed = $("<p>").addClass("the-windspeed").text("Wind Speed: " + response.wind.speed + "MPH");
+            var temperature = $("<p>").addClass("the-temperature").text("Temperature: " + response.main.temp + " F");
+            var humidity = $("<p>").addClass("the-humidity").text("Humidity: " + response.main.humidity + " %");
+            var windSpeed = $("<p>").addClass("the-windspeed").text("Wind Speed: " + response.wind.speed + " MPH");
             var weatherIcon = $("<img>").addClass("weather-image").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
 
             $(searchedCity).append(weatherIcon);
@@ -35,6 +35,7 @@ $(document).ready(function(){
                 url: queryURL2,
                 method: "GET",
             }).then(function (response) {
+               
 
                 var uvI = response.value;
                 var uvIndex = $("<p>").addClass("uvIndex").text("UV Index: " + uvI); 
@@ -66,15 +67,19 @@ $(document).ready(function(){
             console.log(response);
             $("#fiveday").empty();
             // loop to create cards for each day
-            for (var i = 1; i < response.list.length; i+=8){
-                
-                var card = $("<div>").addClass("forecastCard")
+            for (var i = 4; i < response.list.length; i+=8){
 
-                var day = $("<h4>").text(new Date(response.list[i].dt_txt).toLocaleDateString())
-                var maxTemp = $("<p>").text("Temperature: " + response.list[i].main.temp_max + "F");
-                var humid = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%")
-                card.append(day, maxTemp, humid);
-                $("#fiveday").append(card);
+                var colDiv = $("<div>").addClass("col");
+                var card = $("<div>").addClass("forecastCard, bg-primary");
+
+                var day = $("<h4>").text(new Date(response.list[i].dt_txt).toLocaleDateString()).addClass("text-white");
+                var maxTemp = $("<p>").text("Temp: " + response.list[i].main.temp_max + " F").addClass("text-white");
+                var humid = $("<p>").text("Humidity: " + response.list[i].main.humidity + " %").addClass("text-white");
+                var forecastIcon = $("<img>").addClass("forecast-image").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png");
+                card.append(day, forecastIcon, maxTemp, humid);
+                colDiv.append(card);
+                $("#fiveday").append(colDiv);
+                
             }
             
         })
@@ -83,16 +88,47 @@ $(document).ready(function(){
     $("#search-button").on("click", function(event){
         event.preventDefault();
         var cityName = $("#city-search").val();
-        storedCity.push(cityName);
-        var cityArray = JSON.stringify(storedCity);
-
-        localStorage.setItem("searchedCity", cityArray);
-        $(".list-group").append(storedCity);
-
-        getCityWeather(cityName);
+        searchCity(cityName)
     })
 
+    $("#clear-history").on("click", function(){
+        $(".list-group").empty();
+        localStorage.clear();
 
+    })
 
+    function searchCity(cityName) {
+        storedCity.push(cityName);
+
+        let uniqueCities = storedCity.filter((c, index) => {
+            return storedCity.indexOf(c) === index;
+        });
+
+        
+
+        generateCityButtons(uniqueCities);
+
+        var cityArray = JSON.stringify(uniqueCities);
+        localStorage.setItem("searchedCity", cityArray);
+
+        
+        getCityWeather(cityName);
+    }
+
+    function generateCityButtons(uniqueCities) {
+        $(".list-group").empty()
+        uniqueCities.forEach(city => {
+            var listItemCity = $("<button>").text(city).addClass("bg-white, m-1");
+            
+            listItemCity.on('click', () => {
+                searchCity(city)
+            })
+
+             $(".list-group").append(listItemCity);
+        });
+
+    }
+
+     generateCityButtons(storedCity)
 
 })
